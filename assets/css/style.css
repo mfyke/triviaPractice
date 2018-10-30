@@ -1,0 +1,32 @@
+body {
+	background-image: URL("../images/swamp.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+#questionArea {
+	margin-top: 100px;
+	background-color: #7CFC00;
+	border: 5px solid red;
+	padding:  10px;
+	color: #000;
+}
+.answers {
+	background-color: #7CFC00;
+	border: 5px solid red;
+	padding:  10px;
+	color: #000;
+}
+#answerC {
+	margin-bottom: 100px;
+}
+#answerD {
+	margin-bottom: 100px;
+}
+#timerArea {
+	background-color: #7CFC00;
+	border: 5px solid red;
+	padding: 10px;
+	color: #000;
+	margin-top: 100px;
+}
