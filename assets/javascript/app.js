@@ -57,13 +57,13 @@ var displayTimer = function() {
 var displayQuestion = function () {
 	$("#questionArea").show().html(activeQuestion.text);
 	$(".answers").show();
-	$("#answerA").html(activeQuestion.ansA);
-	$("#answerB").html(activeQuestion.ansB);
-	$("#answerC").html(activeQuestion.ansC);
-	$("#answerD").html(activeQuestion.ansD);
+	$("#ansA").html(activeQuestion.ansA);
+	$("#ansB").html(activeQuestion.ansB);
+	$("#ansC").html(activeQuestion.ansC);
+	$("#ansD").html(activeQuestion.ansD);
 }
 
-// timer counts down from 15 seconds until an answer is chosen or time tuns out
+// timer counts down from 20 seconds until an answer is chosen or time tuns out
 var startTimer = function() {
 	countdown = setInterval(function(){
 		timer--;
@@ -73,7 +73,15 @@ var startTimer = function() {
 		}
 	},1000);
 }
-
+// check if chosen answer is correct
+$(".answers").click(function() {
+	if(activeQuestion[this.id]==activeQuestion.correctAns){
+		answerCorrect();
+	}
+	else{
+		questionWrong();
+	}
+});
 // answer correct (correct answers goes up, next question is displayed, timer reset )
 var answerCorrect = function() {
 	correctQuestions++;
@@ -95,5 +103,9 @@ var questionWrong = function() {
 	}
 }
 // at the end of the questions number of questions answered correctly is displayed
-
 // press button to return to the beginning of the quiz
+var endGame = function() {
+	var playAgain = $("<button>").text("Yes!").addClass("btn btn-success").attr("onClick", "startGame()");
+	$("#timerArea").html("Game over! You got " + correctQuestions + " correct out of " + questions.length + " Play Again? ");
+	$("#timerArea").append(playAgain);
+}
